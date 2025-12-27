@@ -1,0 +1,18 @@
+server:
+  port: 8084
+
+# External API URLs
+api:
+  finance:
+    # url: ${FINANCE_API_URL:https://personal-finance.onrender.com}
+    url: ${FINANCE_API_URL:http://localhost:8080}
+
+  aggregator:
+    # url: ${AGGREGATOR_API_URL:https://smart-aggregator.onrender.com}
+    url: ${AGGREGATOR_API_URL:http://localhost:8084}
+
+# Logging
+logging:
+  level:
+    com.networth: DEBUG
+    org.springframework.web: INFO
