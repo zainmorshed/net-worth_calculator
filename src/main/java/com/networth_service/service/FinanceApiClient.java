@@ -20,7 +20,7 @@ public class FinanceApiClient {
     }
     
     public FinanceData getFinanceData(String username, String bearerToken) { 
-        String url = financeApiUrl + "/finance/balance?user=" + username;
+        String url = financeApiUrl + "/accounts/balance?user=" + username;
         //ex result: https://personal-finance.onrender.com/finance/balance?user=john
         
         HttpHeaders headers = new HttpHeaders(); //new headers object from HttpHeaders class - HttpHeaders = spring class for managing HTTP headers
@@ -38,16 +38,18 @@ public class FinanceApiClient {
                 entity,
                 FinanceData.class
             );
+            System.out.println("Response from API: " + response.getBody());
             return response.getBody();
 
         } catch (Exception e) {
             System.err.println("Failed to fetch finance data: " + e.getMessage());
-            // Return default data if API fails
+            //Return default data if API fails
             FinanceData defaultData = new FinanceData();
-            defaultData.setCheckingBalance(0.0);
-            defaultData.setSavingsBalance(0.0);
+            defaultData.setCheckingBalance(java.math.BigDecimal.ZERO);
+            defaultData.setSavingsBalance(java.math.BigDecimal.ZERO);
             return defaultData;
         }
+        
     }
 }
 

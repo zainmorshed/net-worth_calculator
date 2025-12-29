@@ -44,13 +44,12 @@ public class InvestmentData {
     public void setCryptos(List<Crypto> cryptos) {
         this.cryptos = cryptos;
     }
-
-
+    
     public double getTotalValue() {
         double stockValue = stocks != null ? 
-            stocks.stream().mapToDouble(Stock::getPrice).sum() : 0.0;
+            stocks.stream().mapToDouble(s -> s.getPrice() * s.getQuantity()).sum() : 0.0;
         double cryptoValue = cryptos != null ? 
-            cryptos.stream().mapToDouble(Crypto::getPrice).sum() : 0.0;
+            cryptos.stream().mapToDouble(c -> c.getPrice() * c.getQuantity()).sum() : 0.0;
         return stockValue + cryptoValue;
     }
 

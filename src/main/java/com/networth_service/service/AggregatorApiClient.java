@@ -32,10 +32,12 @@ public class AggregatorApiClient {
                 entity,
                 InvestmentData.class
             );
+            System.out.println("Response from Aggregator API: " + response.getBody()); // ADD THIS
+            System.out.println("Response status: " + response.getStatusCode()); // ADD THIS TOO
             return response.getBody();
         } catch (Exception e) {
             System.err.println("Failed to fetch investment data: " + e.getMessage());
-            // Return default data if API fails
+            e.printStackTrace(); // ADD THIS
             return new InvestmentData();
         }
     }

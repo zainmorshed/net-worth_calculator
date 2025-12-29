@@ -4,6 +4,7 @@ public class Crypto {
     private String symbol;
     private String name;
     private double price;
+    private double quantity;
     
     public Crypto() {}
     
@@ -29,5 +30,13 @@ public class Crypto {
     
     public void setPrice(double price) { 
         this.price = price; 
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
     }
 }

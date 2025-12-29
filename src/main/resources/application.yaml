@@ -9,7 +9,7 @@ api:
 
   aggregator:
     # url: ${AGGREGATOR_API_URL:https://smart-aggregator.onrender.com}
-    url: ${AGGREGATOR_API_URL:http://localhost:8084}
+    url: ${AGGREGATOR_API_URL:http://localhost:9090}
 
 # Logging
 logging:
